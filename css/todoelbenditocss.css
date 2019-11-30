@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bungee|Open+Sans&display=swap');
+
+/*
+    font-family: 'Bungee', cursive;
+
+    font-family: 'Open Sans', sans-serif;
+*/
+
+* {
+  	box-sizing: border-box;
+  	font-family: 'Open Sans', sans-serif; 
+}
+
+html, body{
+	height: 100%;
+	margin: 0;
+	background-image: linear-gradient(0deg,#4F0082,#130020,#000000);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	color: #FFFFFF;
+}
+
+div {
+  	display: inline-block;
+}
+
+button {
+  	font-size: 15px;
+  	color: #FFFFFF;
+  	text-transform: uppercase;
+  	justify-content: center;
+  	width: 100%;
+  	height: 50px;
+  	margin: 10px 0;
+  	background: #a64bf4;
+  	background: -webkit-linear-gradient(left, #130020, #000000);;
+  	border-style: ridge;
+  	border-color: #FFFFFF;
+  	border-radius: 15px;
+}
+
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+input::placeholder {
+  	color: #adadad;
+}
+
+input:focus::placeholder {
+  	color: transparent;
+}
+
+input {
+  	height: 45px;
+  	width: 100%;
+  	background: transparent;
+  	display: block;
+  	padding: 0 5px;
+  	color: #555555;
+  	font-size: 15px;
+  	outline: none;
+  	border: none;
+  	overflow: visible;
+}
+
+.mainDiv{
+	display:block;
+}
+
+.input_wrap {
+  	padding: 10px 0 0 0;
+  	margin-bottom: 35px;
+  	width: 100%;
+}
+
+.input_wrap_sel {
+    background:transparent;
+    background-color: #101010
+}
+
+.Bungee{
+	font-family: 'Bungee', cursive;
+	font-size: 40px;
+	margin: 0;
+	text-align: center;
+}
+
+.formulatzione{
+	color: #000000;
+}
+
+.line{
+	height: 1px;
+	width: 100%;
+    border-radius: 4px;
+}
+
+.rainbowgrad{
+	background: purple;
+    background-image: linear-gradient(90deg,red,orange,yellow,lightgreen,cyan,blue,purple);
+}
+
+.centered{
+	margin:0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+#container-button {
+  width: 300px;
+}
+
+#container-home {
+	width: 800px;
+	min-height: 300px;
+	background: #ffffff;
+	margin: auto;
+	padding: 40px 50px;
+}
+
+#container-form {
+	width: 400px;
+	background: #ffffff;
+	border-radius: 2  px;
+	padding: 40px 50px;
+	box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+#signup_option {
+  	font-size: 13px;
+  	width: 100%;
+  	text-align: center;
+  	margin: 5px 0 0 0;
+}
