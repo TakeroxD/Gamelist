@@ -7,12 +7,12 @@ $('#signupButton').on('click',function(){
   	let age = $('#age').val();
 
   	if (age < 14 || age > 120){
-  		$('#warning').prop('visibility','visible');
-  		$('#signupButton').prop('disabled','true');
+  		$('#warning').removeClass('invisible');
   	}
   	else{
+  		$('#warning').addClass('invisible');
   		json_to_send = {
-  			"name": name    		
+  			"username": name,    		
     		"email": email,
     		"password" : password
   		};
@@ -29,7 +29,7 @@ $('#signupButton').on('click',function(){
 	    data: json_to_send,
 	    success: function(data){
 	      alert("Usuario creado con exito");
-	      window.location = './index.html'
+	      window.location = './login.html'
 	    },
 	    error: function(error_msg) {
 	      alert((error_msg['responseText']));
