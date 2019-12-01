@@ -32,6 +32,12 @@ button {
   	border-style: ridge;
   	border-color: #FFFFFF;
   	border-radius: 15px;
+
+}
+
+button:hover {
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button { 
