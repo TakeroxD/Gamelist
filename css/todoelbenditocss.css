@@ -76,7 +76,7 @@ input {
 
 .input_wrap_sel {
     background:transparent;
-    background-color: #101010
+    background-color: #404040
 }
 
 .Bungee{
@@ -98,9 +98,12 @@ input {
 
 .rainbowgrad{
 	background: purple;
-    background-image: linear-gradient(90deg,red,orange,yellow,lightgreen,cyan,blue,purple);
+  background-image: linear-gradient(90deg,red,orange,yellow,lightgreen,cyan,blue,purple);
 }
 
+.red{
+  color: red;
+}
 .centered{
 	margin:0;
 	position: absolute;
@@ -108,6 +111,14 @@ input {
 	left: 50%;
 	-ms-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
+}
+
+.huge{
+  font-size: 50px;
+}
+
+.superhuge{
+  font-size: 250px;
 }
 
 #container-button {
