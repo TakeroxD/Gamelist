@@ -12,9 +12,25 @@ $('#signupButton').on('click',function(){
   	else{
   		$('#warning').addClass('invisible');
   		json_to_send = {
-  			"username": name,    		
-    		"email": email,
-    		"password" : password
+  			"username": 	name,    		
+    		"email": 		email,
+    		"password": 	password,
+    		"about": 		null,
+			"sex": 			null,
+			"location": 	null,
+			"favconsole": 	null,
+			"steamid": 		null,
+			"xboxid": 		null,
+			"playstationid":null,
+			"nintendoid": 	null,
+			"epicid": 		null,
+			"discordid": 	null,
+			"twitchid": 	null,
+			"mixerid": 		null,
+			"youtubeid": 	null,
+			"twitterid": 	null,
+			"instagramid": 	null,
+			"facebookid": 	null
   		};
 
   		json_to_send = JSON.stringify(json_to_send);
