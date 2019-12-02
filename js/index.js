@@ -92,7 +92,7 @@ function getGame(gameId){
 	    				<h5>Release date: ${data.releasedate}</h5>
 	    				<h3>Rating: ${data.rating}</h3>
 	    				<p>Plot: ${data.plot}</p>
-	    				<span id="Rev${data.name}">Reviews:</span>
+	    				<span id="revs">Reviews:</span>
 	    			</div>
 	    		</div>
 	    	`
@@ -103,17 +103,17 @@ function getGame(gameId){
 				if(token){
 					var user = localStorage.getItem('userId');
 			    	jsonToSend = {
-			    		"toplay" : {"game":gameId}
+			    		"game":gameId
 			    	}
 			    	jsonToSend = JSON.stringify(jsonToSend);
 			    	console.log(jsonToSend)
 					$.ajax({
-   						url: 'https://gamelistwebapp.herokuapp.com/user/'+user,
+   						url: 'https://gamelistwebapp.herokuapp.com/user/toplay/'+user,
     					headers: {
         					'Content-Type':'application/json',
         					'Authorization': 'Bearer ' + token
     					},
-    					method: 'PATCH',
+    					method: 'POST',
     					dataType: 'json',
     					data: jsonToSend,
     					success: function(data){
@@ -136,17 +136,17 @@ function getGame(gameId){
 				if(token){
 					var user = localStorage.getItem('userId');
 			    	jsonToSend = {
-			    		"played" : {"game":gameId}
+			    		"game":gameId
 			    	}
 			    	jsonToSend = JSON.stringify(jsonToSend);
 			    	console.log(jsonToSend)
 					$.ajax({
-   						url: 'https://gamelistwebapp.herokuapp.com/user/'+user,
+   						url: 'https://gamelistwebapp.herokuapp.com/user/played/'+user,
     					headers: {
         					'Content-Type':'application/json',
         					'Authorization': 'Bearer ' + token
     					},
-    					method: 'PATCH',
+    					method: 'POST',
     					dataType: 'json',
     					data: jsonToSend,
     					success: function(data){
@@ -171,8 +171,7 @@ function getGame(gameId){
 		    			<p class="review">${data.reviews[i]}</p>
 		    		`
 		    	}
-		    	plop = '#Rev' + data.name
-		    	$(plop).append(newHtml)
+		    	$('#revs').append(newHtml)
 	    	}
 	    },
 	    error: function(error_msg){
@@ -181,6 +180,227 @@ function getGame(gameId){
 	    }
 	});
 }
+
+function getGameN(gameId){
+	$('body').addClass('waiting')
+	$('#infodiv').replaceWith(`
+			<div id="infodiv">
+			</div>`)
+	$.ajax({
+		url: 'https://gamelistwebapp.herokuapp.com/game/'+gameId,
+		headers: {
+	        'Content-Type':'application/json'
+	    },
+	    method: 'GET',
+	    dataType: 'json',
+	    success: function(data){
+	    	$('body').removeClass('waiting')
+	    	let newHtml=''
+	    	newHtml+=`
+	    		<div class="gamePresentation">
+	    			<div id="buttonsAdd">
+	    				<img src="${data.image}" class="bigGameImg">
+	    			</div>
+	    			<div class="gameDescription">
+	    				<h1>${data.name}</h1>
+	    				<h5>Release date: ${data.releasedate}</h5>
+	    				<h3>Rating: ${data.rating}</h3>
+	    				<p>Plot: ${data.plot}</p>
+	    				<span id="revs">Reviews:</span>
+	    			</div>
+	    		</div>
+	    	`
+	    	$('#infodiv').append(newHtml)
+
+	    	if(data.reviews.length>0){
+		    	newHtml = ''
+		    	for(let i=0; i<data.reviews.length;i++){
+		    		newHtml += `
+		    			<p class="review">${data.reviews[i]}</p>
+		    		`
+		    	}
+		    	$('#revs').append(newHtml)
+	    	}
+	    },
+	    error: function(error_msg){
+	    	$('body').removeClass('waiting')
+	      	alert((error_msg['responseText']));
+	    }
+	});
+}
+
+function getGameS(gameId){
+	$('body').addClass('waiting')
+	$('#infodiv').replaceWith(`
+			<div id="infodiv">
+			</div>`)
+	$.ajax({
+		url: 'https://gamelistwebapp.herokuapp.com/game/'+gameId,
+		headers: {
+	        'Content-Type':'application/json'
+	    },
+	    method: 'GET',
+	    dataType: 'json',
+	    success: function(data){
+	    	$('body').removeClass('waiting')
+	    	let newHtml=''
+	    	newHtml+=`
+	    		<div class="gamePresentation">
+	    			<div id="buttonsAdd">
+	    				<img src="${data.image}" class="bigGameImg">
+	    			</div>
+	    			<div class="gameDescription">
+	    				<h1>${data.name}</h1>
+	    				<h5>Release date: ${data.releasedate}</h5>
+	    				<h3>Rating: ${data.rating}</h3>
+	    				<p>Plot: ${data.plot}</p>
+	    				<span id="revs">Reviews:</span>
+	    				<div id="jaja">
+	    					<input id="newReview">
+	    					<button id="revButton">Agregar</button>
+	    				</div>
+	    			</div>
+	    		</div>
+	    	`
+	    	$('#infodiv').append(newHtml)
+
+	    	if(data.reviews.length>0){
+		    	newHtml = ''
+		    	for(let i=0; i<data.reviews.length;i++){
+		    		newHtml += `
+		    			<p class="review">${data.reviews[i]}</p>
+		    		`
+		    	}
+		    	$('#revs').append(newHtml)
+	    	}
+
+	    	$('#newReview').on('click',function(){
+	    		jsonToSend={"review":$('#newReview').val()}
+	    		jsonToSend = JSON.stringify(jsonToSend);
+	    		$.ajax({
+					url: 'https://gamelistwebapp.herokuapp.com/game/'+gameId,
+					headers: {
+				        'Content-Type':'application/json'
+				    },
+				    method: 'POST',
+				    dataType: 'json',
+				    data: jsonToSend,
+				    success:function(data){
+				    	alert("Review agregada")
+				    },
+				    error:function(error){
+				    	alert("Error al agregar review" + error)
+				    }
+				});
+	    	})
+	    },
+	    error: function(error_msg){
+	    	$('body').removeClass('waiting')
+	      	alert((error_msg['responseText']));
+	    }
+	});
+}
+
+$('#mygamesplayed').on('click',function(){
+	$('body').addClass('waiting')
+	$('#infodiv').replaceWith(`
+			<div id="infodiv">
+			</div>`)
+	var user = localStorage.getItem('userId');
+	$.ajax({
+	    url: 'https://gamelistwebapp.herokuapp.com/user/'+user,
+	    headers: {
+	        'Content-Type':'application/json',
+	        'Authorization': 'Bearer ' + token
+	    },
+	    method: 'GET',
+	    dataType: 'json',
+	    success: function(data){
+	    	$('body').removeClass('waiting')
+	      	let newHtml=''
+			for(let i=0 ; i<data.played.length ; i++){
+				var current = data.played[i].game
+				console.log(current)
+				$.ajax({
+					url: 'https://gamelistwebapp.herokuapp.com/game/'+current,
+					headers: {
+				        'Content-Type':'application/json',
+				        'Authorization': 'Bearer ' + token
+				    },
+				    method: 'GET',
+				    dataType: 'json',
+				    success: function(data){
+				    	newHtml=`
+							<div class="gameElement">
+								<img src="${data.image}" class="gameImg" onclick="getGameS('${data._id}')">
+								<label class="gameNameLbl" onclick="getGameS('${data._id}')">${data.name}</label>
+							</div>`
+						$('#infodiv').append(newHtml)
+				    },
+				    error: function(error){
+				    	alert(":(");
+				    }
+
+				});
+			}
+			
+	    },
+	    error: function(error_msg) {
+	    	$('body').removeClass('waiting')
+	      	alert((error_msg['responseText']));
+		}
+	});
+})
+
+$('#mygamestoplay').on('click',function(){
+	$('body').addClass('waiting')
+	$('#infodiv').replaceWith(`
+			<div id="infodiv">
+			</div>`)
+	var user = localStorage.getItem('userId');
+	$.ajax({
+	    url: 'https://gamelistwebapp.herokuapp.com/user/'+user,
+	    headers: {
+	        'Content-Type':'application/json',
+	        'Authorization': 'Bearer ' + token
+	    },
+	    method: 'GET',
+	    dataType: 'json',
+	    success: function(data){
+	    	$('body').removeClass('waiting')
+	      	let newHtml=''
+			for(let i=0 ; i<data.toplay.length ; i++){
+				var current = data.toplay[i].game
+				$.ajax({
+					url: 'https://gamelistwebapp.herokuapp.com/game/'+current,
+					headers: {
+				        'Content-Type':'application/json',
+				        'Authorization': 'Bearer ' + token
+				    },
+				    method: 'GET',
+				    dataType: 'json',
+				    success: function(data){
+				    	newHtml=`
+							<div class="gameElement">
+								<img src="${data.image}" class="gameImg" onclick="getGameN('${data._id}')">
+								<label class="gameNameLbl" onclick="getGameN('${data._id}')">${data.name}</label>
+							</div>`
+							$('#infodiv').append(newHtml)
+				    },
+				    error: function(error){
+				    	alert(":(");
+				    }
+
+				});
+			}
+			
+	    },
+	    error: function(error_msg) {
+	    	$('body').removeClass('waiting')
+	      	alert((error_msg['responseText']));
+		}
+	});
+})
 
 $('#signupButton').on('click',function(){
 	location.href='./signup.html';
