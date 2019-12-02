@@ -218,6 +218,12 @@ li{
 .profLbl{
   width: 100%;
   float: left;
+  margin-left: 20px;
+  padding-top: 10px;
+}
+
+.info{
+  padding: 10px;
 }
 
 .searchInput{
@@ -346,4 +352,9 @@ li{
 
 #social{
   width: 100%;
+}
+
+#editProfile{
+  width: 100%;
+  padding: 10px;
 }

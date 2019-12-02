@@ -24,31 +24,30 @@ if(token){
 	    success: function(data){
 	    	$('body').removeClass('waiting')
 	      	let newHtml=`
-				<h2>`+data.username+`</h2>
+				<h2 class="profLbl">`+data.username+`</h2>
 				<div id="email" class="info">
-					<label class="profLbl">email</label>"\n"<label class="profLbl">${data.email}</label>
+					<label class="profLbl">Email: ${data.email}</label>
 				</div>
-				<div id="optInfo" class="info">
-					<span id="aboutSpan" class="edit">edit</span>
-					<label id="about" class="profLbl">${data.about}"\n"</label>
-					<label id="sex" class="profLbl">${data.sex}"\n"</label>
-					<label id"location" class="profLbl">${data.location}</label>
+				<div id="optInfo" class="info">Personal info:
+					<label id="about" class="profLbl">About: ${data.about}</label>
+					<label id="sex" class="profLbl">Sex: ${data.sex}</label>
+					<label id"location" class="profLbl">Location: ${data.location}</label>
 				</div>
-				<div id="social" class="info">
-					<span id="socialSpan" class="edit">edit</span>
-					<label id="steam" class="profLbl">Steam:${data.steamid}</label>
-					<label id="xbox" class="profLbl">Xbox:${data.xboxid}</label>
-					<label id="playstation" class="profLbl">Playstation:${data.playstationid}</label>
-					<label id="nintendo" class="profLbl">Nintendo:${data.nintendoid}</label>
-					<label id="epic" class="profLbl">Epic:${data.epicid}</label>
-					<label id="discord" class="profLbl">Discord:${data.discordid}</label>
-					<label id="twitch" class="profLbl">Twitch:${data.twitchid}</label>
-					<label id="mixer" class="profLbl">Mixer:${data.mixerid}</label>
-					<label id="youtube" class="profLbl">Youtube:${data.youtubeid}</label>
-					<label id="twitter" class="profLbl">Twitter:${data.twitterid}</label>
-					<label id="instagram" class="profLbl">Instagram:${data.instagramid}</label>
-					<label id="facebook" class="profLbl">Facebook:${data.facebookid}</label>
+				<div id="social" class="info">Social media:
+					<label id="steam" class="profLbl">Steam: ${data.steamid}</label>
+					<label id="xbox" class="profLbl">Xbox: ${data.xboxid}</label>
+					<label id="playstation" class="profLbl">Playstation: ${data.playstationid}</label>
+					<label id="nintendo" class="profLbl">Nintendo: ${data.nintendoid}</label>
+					<label id="epic" class="profLbl">Epic: ${data.epicid}</label>
+					<label id="discord" class="profLbl">Discord: ${data.discordid}</label>
+					<label id="twitch" class="profLbl">Twitch: ${data.twitchid}</label>
+					<label id="mixer" class="profLbl">Mixer: ${data.mixerid}</label>
+					<label id="youtube" class="profLbl">Youtube: ${data.youtubeid}</label>
+					<label id="twitter" class="profLbl">Twitter: ${data.twitterid}</label>
+					<label id="instagram" class="profLbl">Instagram: ${data.instagramid}</label>
+					<label id="facebook" class="profLbl">Facebook: ${data.facebookid}</label>
 				</div>
+				<div id="editProfile" class="right">Editar</div>
 					`
 			
 			$('#infodiv').append(newHtml)
