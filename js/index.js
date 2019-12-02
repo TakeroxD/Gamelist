@@ -9,7 +9,6 @@ if(token){
 	$('#logIn').addClass('invisible')
 	$('#logOut').removeClass('invisible')
 	$('#profile').on('click',function(){
-		$('body')addClass('waiting')
 		$('#infodiv').replaceWith(`
 			<div id="infodiv">
 			</div>`
@@ -17,7 +16,8 @@ if(token){
 		$.ajax({
 	    url: 'https://gamelistwebapp.herokuapp.com/user/'+localStorage.getItem('userId'),
 	    headers: {
-	        'Content-Type':'application/json'
+	        'Content-Type':'application/json',
+	        'Authorization': 'Bearer ' + token
 	    },
 	    method: 'GET',
 	    dataType: 'json',
