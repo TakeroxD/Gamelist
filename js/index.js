@@ -118,8 +118,8 @@ function getGame(gameId){
     					success: function(data){
 				    		$('body').removeClass('waiting')
 				     		alert("Juego agregado con exito");
-				      		window.location = './login.html'
-				    	},
+				      		window.location = './index.html'				    	
+				      	},
 				    	error: function(error_msg) {
 				    		$('body').removeClass('waiting')
 				      		alert((error_msg['responseText']));
@@ -132,9 +132,8 @@ function getGame(gameId){
 	    	$('#addPlayed').on('click',function(){
 				if(token){
 					var user = localStorage.getItem('userId');
-		    		const gamed = '"'+gameId+'"'
 			    	jsonToSend = {
-			    		"played" : {"game":gamed}
+			    		"played" : {"game":gameId}
 			    	}
 			    	jsonToSend = JSON.stringify(jsonToSend);
 					$.ajax({
@@ -148,7 +147,7 @@ function getGame(gameId){
     					success: function(data){
 				    		$('body').removeClass('waiting')
 				     		alert("Juego agregado con exito");
-				      		window.location = './login.html'
+				      		window.location = './index.html'
 				    	},
 				    	error: function(error_msg) {
 				    		$('body').removeClass('waiting')
