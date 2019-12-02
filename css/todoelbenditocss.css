@@ -245,7 +245,6 @@ li{
 
 #mainBody{
   width: 75%;
-  height: 95%;
   background: #E7F1FF;
   border-radius: 3px;
   margin: 0.5% 1% 0.5% 1%;
@@ -291,7 +290,8 @@ li{
 }
 
 #infodiv{
-  width: 100%
+  width: 100%;
+  height: auto;
 }
 
 #buttonsAdd{

@@ -102,11 +102,11 @@ function getGame(gameId){
 				$('body').addClass('waiting') 
 				if(token){
 					var user = localStorage.getItem('userId');
-		    		const gamed = '"'+gameId+'"'
 			    	jsonToSend = {
-			    		"toplay" : {"game":gamed}
+			    		"toplay" : {"game":gameId}
 			    	}
 			    	jsonToSend = JSON.stringify(jsonToSend);
+			    	console.log(jsonToSend)
 					$.ajax({
    						url: 'https://gamelistwebapp.herokuapp.com/user/'+user,
     					headers: {

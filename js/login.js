@@ -21,11 +21,14 @@ $('#loginButton').on('click',function(){
    	dataType: 'json',
    	data: json_to_send,
    	success: function(data){
+        console.log(data)
      		localStorage.setItem('token', data.token)
-         localStorage.setItem('user',data.username)
-         localStorage.setItem('userId',data._id)
+        localStorage.setItem('user',data.user.username)
+        localStorage.setItem('userId',data.user._id)
      		$('body').removeClass('waiting')
-     		window.location = './index.html'
+        window.location = './login.html'
+
+     		
    	},
    	error: function(error_msg) {
    		$('body').removeClass('waiting')
