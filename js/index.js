@@ -115,6 +115,7 @@ function getGame(gameId){
     					},
     					method: 'PATCH',
     					dataType: 'json',
+    					data: jsonToSend,
     					success: function(data){
 				    		$('body').removeClass('waiting')
 				     		alert("Juego agregado con exito");
@@ -144,6 +145,7 @@ function getGame(gameId){
     					},
     					method: 'PATCH',
     					dataType: 'json',
+    					data: jsonToSend,
     					success: function(data){
 				    		$('body').removeClass('waiting')
 				     		alert("Juego agregado con exito");
