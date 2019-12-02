@@ -26,7 +26,7 @@ $('#loginButton').on('click',function(){
         localStorage.setItem('user',data.user.username)
         localStorage.setItem('userId',data.user._id)
      		$('body').removeClass('waiting')
-        window.location = './login.html'
+        window.location = './index.html'
 
      		
    	},
