@@ -97,7 +97,6 @@ li{
   border-bottom: solid;
   border-bottom-width: 1px;
   border-color: #4F0082;
-  height: 12%;
 }
 
 .input_wrap {
@@ -123,6 +122,7 @@ li{
   font-size: 50px;
   margin: 0;
   text-align: left;
+  line-height: 2;
 }
 
 .formulatzione{
@@ -188,11 +188,50 @@ li{
   height: 210px;
 }
 
+.gameImg:hover{
+  cursor: pointer;
+}
+
+.gameNameLbl{
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gameNameLbl:hover{
+  cursor: pointer;
+}
+
+.gameTitle{
+  text-align: center;
+  font-weight: 700;
+}
+
+.gameDescription{
+  width: 70%
+}
+
+.gamePresentation{
+  width: 100%
+}
+
 .searchInput{
   background: #FFFFFF;
   color: #000000;
   display: inline;
-  width: 500px;
+  width: 75%;
+}
+
+.review{
+  font-style: italic;
+}
+
+.bigGameImg{
+  width: 350px;
+  height: 410px;
+  padding: 20px;
+  margin: 10px;
+  float: left;
 }
 
 #menuNav{
@@ -249,4 +288,26 @@ li{
   width: 100%;
   text-align: center;
   margin: 5px 0 0 0;
+}
+
+#infodiv{
+  width: 100%
+}
+
+#buttonsAdd{
+  float: left;
+  width: 350px;
+}
+
+#addToPlay{
+  width: 250px;
+  text-align: center;
+  margin: 10px 30px;
+}
+
+#addPlayed{
+  width: 250px;
+  float: left;
+  text-align: center;
+  margin: 10px 30px;
 }

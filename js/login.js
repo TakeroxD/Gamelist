@@ -2,7 +2,7 @@
 $('#loginButton').on('click',function(){
 	//proceso login
 	let email = $('#email').val()
-  	let password = $('#password').val()
+  let password = $('#password').val()
 
 	json_to_send = {
 		"email": email,
@@ -21,6 +21,8 @@ $('#loginButton').on('click',function(){
     	data: json_to_send,
     	success: function(data){
       		localStorage.setItem('token', data.token)
+          localStorage.setItem('user',data.username)
+          localStorage.setItem('userId',data._id)
       		$('body').removeClass('waiting')
       		window.location = './index.html'
     	},
