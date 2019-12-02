@@ -15,49 +15,49 @@ if(token){
 			</div>`
 		)
 		$.ajax({
-	    url: 'https://gamelistwebapp.herokuapp.com/user/'+localStorage.getItem('userId'),
-	    headers: {
-	        'Content-Type':'application/json'
-	    },
-	    method: 'GET',
-	    dataType: 'json',
-	    success: function(data){
-	    	$('body').removeClass('waiting')
-	      	let newHtml=`
-				<h2>`+data.username+`</h2>
-				<div id="email" class="info">
-					<label>email</label>"\n"<label>${data.email}</label>
-				</div>
-				<div id="optInfo" class="info">
-					<span id="aboutSpan" class="edit">edit</span>
-					<label id="about">${data.about}"\n"</label>
-					<label id="sex">${data.sex}"\n"</label>
-					<label id"location">${data.location}</label>
-				</div>
-				<div id="social" class="info">
-					<span id="socialSpan" class="edit">edit</span>
-					<label id="steam">Steam:${data.steamid}</label>
-					<label id="xbox">Xbox:${data.xboxid}</label>
-					<label id="playstation">Playstation:${data.playstationid}</label>
-					<label id="nintendo">Nintendo:${data.nintendoid}</label>
-					<label id="epic">Epic:${data.epicid}</label>
-					<label id="discord">Discord:${data.discordid}</label>
-					<label id="twitch">Twitch:${data.twitchid}</label>
-					<label id="mixer">Mixer:${data.mixerid}</label>
-					<label id="youtube">Youtube:${data.youtubeid}</label>
-					<label id="twitter">Twitter:${data.twitterid}</label>
-					<label id="instagram">Instagram:${data.instagramid}</label>
-					<label id="facebook">Facebook:${data.facebookid}</label>
-				</div>
-					`
-			
-			$('#infodiv').append(newHtml)
-	    },
-	    error: function(error_msg) {
-	    	$('body').removeClass('waiting')
-	      	alert((error_msg['responseText']));
-		}
-	});
+		    url: 'https://gamelistwebapp.herokuapp.com/user/'+localStorage.getItem('userId'),
+		    headers: {
+		        'Content-Type':'application/json'
+		    },
+		    method: 'GET',
+		    dataType: 'json',
+		    success: function(data){
+		    	$('body').removeClass('waiting')
+		      	let newHtml=`
+					<h2>${data.username}</h2>
+					<div id="email" class="info">
+						<label>email</label>"\n"<label>${data.email}</label>
+					</div>
+					<div id="optInfo" class="info">
+						<span id="aboutSpan" class="edit">edit</span>
+						<label id="about">${data.about}"\n"</label>
+						<label id="sex">${data.sex}"\n"</label>
+						<label id"location">${data.location}</label>
+					</div>
+					<div id="social" class="info">
+						<span id="socialSpan" class="edit">edit</span>
+						<label id="steam">Steam:${data.steamid}</label>
+						<label id="xbox">Xbox:${data.xboxid}</label>
+						<label id="playstation">Playstation:${data.playstationid}</label>
+						<label id="nintendo">Nintendo:${data.nintendoid}</label>
+						<label id="epic">Epic:${data.epicid}</label>
+						<label id="discord">Discord:${data.discordid}</label>
+						<label id="twitch">Twitch:${data.twitchid}</label>
+						<label id="mixer">Mixer:${data.mixerid}</label>
+						<label id="youtube">Youtube:${data.youtubeid}</label>
+						<label id="twitter">Twitter:${data.twitterid}</label>
+						<label id="instagram">Instagram:${data.instagramid}</label>
+						<label id="facebook">Facebook:${data.facebookid}</label>
+					</div>
+						`
+				
+				$('#infodiv').append(newHtml)
+		    },
+		    error: function(error_msg) {
+		    	$('body').removeClass('waiting')
+		      	alert((error_msg['responseText']));
+			}
+		});
 	})
 }
 else{
