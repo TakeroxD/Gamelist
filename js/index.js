@@ -274,9 +274,10 @@ function getGameS(gameId){
 		    	$('#revs').append(newHtml)
 	    	}
 
-	    	$('#newReview').on('click',function(){
+	    	$('#revButton').on('click',function(){
 	    		jsonToSend={"review":$('#newReview').val()}
 	    		jsonToSend = JSON.stringify(jsonToSend);
+	    		console.log(jsonToSend)
 	    		$.ajax({
 					url: 'https://gamelistwebapp.herokuapp.com/game/'+gameId,
 					headers: {
