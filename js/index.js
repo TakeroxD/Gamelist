@@ -84,8 +84,8 @@ function getGame(gameId){
 	    		<div class="gamePresentation">
 	    			<div id="buttonsAdd">
 	    				<img src="${data.image}" class="bigGameImg">
-	    				<button id="addToPlay">Añadir a juegos jugados</button>
-	    				<button id="addPlayed">Añadir a juegos por jugar</button>
+	    				<button id="addPlayed">Añadir a juegos jugados</button>
+	    				<button id="addToPlay">Añadir a juegos por jugar</button>
 	    			</div>
 	    			<div class="gameDescription">
 	    				<h1>${data.name}</h1>
@@ -130,13 +130,16 @@ function getGame(gameId){
 					location.href='./login.html';
 				}
 			})
+
 	    	$('#addPlayed').on('click',function(){
+				$('body').addClass('waiting') 
 				if(token){
 					var user = localStorage.getItem('userId');
 			    	jsonToSend = {
 			    		"played" : {"game":gameId}
 			    	}
 			    	jsonToSend = JSON.stringify(jsonToSend);
+			    	console.log(jsonToSend)
 					$.ajax({
    						url: 'https://gamelistwebapp.herokuapp.com/user/'+user,
     					headers: {
@@ -149,8 +152,8 @@ function getGame(gameId){
     					success: function(data){
 				    		$('body').removeClass('waiting')
 				     		alert("Juego agregado con exito");
-				      		window.location = './index.html'
-				    	},
+				      		window.location = './index.html'				    	
+				      	},
 				    	error: function(error_msg) {
 				    		$('body').removeClass('waiting')
 				      		alert((error_msg['responseText']));
@@ -160,6 +163,7 @@ function getGame(gameId){
 					location.href='./login.html';
 				}
 			})
+
 	    	if(data.reviews.length>0){
 		    	newHtml = ''
 		    	for(let i=0; i<data.reviews.length;i++){
