@@ -37,23 +37,23 @@ $('#signupButton').on('click',function(){
 		$('body').addClass('waiting')
 
   		$.ajax({
-	    url: 'https://gamelistwebapp.herokuapp.com/signup',
-	    headers: {
-	        'Content-Type':'application/json'
-	    },
-	    method: 'POST',
-	    dataType: 'json',
-	    data: json_to_send,
-	    success: function(data){
-	    	$('body').removeClass('waiting')
-	     	alert("Usuario creado con exito");
-	      	window.location = './login.html'
-	    },
-	    error: function(error_msg) {
-	    	$('body').removeClass('waiting')
-	      	alert((error_msg['responseText']));
-	    }
-	  });
+	    	url: 'https://gamelistwebapp.herokuapp.com/signup',
+	    	headers: {
+	        	'Content-Type':'application/json'
+	    	},
+	    	method: 'POST',
+	    	dataType: 'json',
+	    	data: json_to_send,
+	    	success: function(data){
+	    		$('body').removeClass('waiting')
+	     		alert("Usuario creado con exito");
+	      		window.location = './login.html'
+	    	},
+	    	error: function(error_msg) {
+	    		$('body').removeClass('waiting')
+	      		alert((error_msg['responseText']));
+	    	}
+	  	});
   	}
 })
 

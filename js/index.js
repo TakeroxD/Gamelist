@@ -29,6 +29,25 @@ else{
 	})
 }
 
+$('#allgames').on('click',function(){
+	$.ajax({
+	    url: 'https://gamelistwebapp.herokuapp.com/games',
+	    headers: {
+	        'Content-Type':'application/json'
+	    },
+	    method: 'GET',
+	    dataType: 'json',
+	    success: function(data){
+	    	$('body').removeClass('waiting')
+	      	console.log(data)
+	    },
+	    error: function(error_msg) {
+	    	$('body').removeClass('waiting')
+	      	alert((error_msg['responseText']));
+		}
+	});
+})
+
 $('#signupButton').on('click',function(){
 	location.href='./signup.html';
 })
