@@ -168,7 +168,7 @@ function getGame(gameId){
 		    	newHtml = ''
 		    	for(let i=0; i<data.reviews.length;i++){
 		    		newHtml += `
-		    			<p class="review">${data.reviews[i]}</p>
+		    			<p class="review">${data.reviews[i].review}</p>
 		    		`
 		    	}
 		    	$('#revs').append(newHtml)
@@ -268,7 +268,7 @@ function getGameS(gameId){
 		    	newHtml = ''
 		    	for(let i=0; i<data.reviews.length;i++){
 		    		newHtml += `
-		    			<p class="review">${data.reviews[i]}</p>
+		    			<p class="review">${data.reviews[i].review}</p>
 		    		`
 		    	}
 		    	$('#revs').append(newHtml)
@@ -277,6 +277,7 @@ function getGameS(gameId){
 	    	$('#revButton').on('click',function(){
 	    		jsonToSend={"review":$('#newReview').val()}
 	    		jsonToSend = JSON.stringify(jsonToSend);
+	    		$('#newReview').val('')
 	    		console.log(jsonToSend)
 	    		$.ajax({
 					url: 'https://gamelistwebapp.herokuapp.com/game/'+gameId,
