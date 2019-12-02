@@ -1,4 +1,34 @@
 
+if(localStorage.getItem('token')){
+	$('#signUp').addClass('invisible')
+	$('#logIn').addClass('invisible')
+	$('#logOut').removeClass('invisible')
+	$('#profile').on('click',function(){
+		$('#infodiv').replaceWith(`
+			<div id="infodiv">
+
+			</div>`
+		)
+	})
+}
+else{
+	$('#signUp').removeClass('invisible')
+	$('#logIn').removeClass('invisible')
+	$('#logOut').addClass('invisible')
+
+	$('#profile').on('click',function(){
+		location.href='./login.html';
+	})
+
+	$('#mygamesplayed').on('click',function(){
+		location.href='./login.html';
+	})
+
+	$('#mygamestoplay').on('click',function(){
+		location.href='./login.html';
+	})
+}
+
 $('#signupButton').on('click',function(){
 	location.href='./signup.html';
 })
@@ -11,10 +41,6 @@ $('#logoutButton').on('click',function(){
 	location.href='./logout.html';
 })
 
-$('.input_wrap').on('click', function(event){
-  $(this).addClass('input_wrap_sel');
-});
-
-$('.input_wrap').focusout(function(event){
-  $(this).removeClass('input_wrap_sel');
-});
+$('#logoutButton').on('click',function(){
+	location.href='./logout.html';
+})
