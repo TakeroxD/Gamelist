@@ -30,6 +30,9 @@ else{
 }
 
 $('#allgames').on('click',function(){
+	$('#infodiv').replaceWith(`
+			<div id="infodiv">
+			</div>`)
 	$.ajax({
 	    url: 'https://gamelistwebapp.herokuapp.com/games',
 	    headers: {
@@ -39,7 +42,15 @@ $('#allgames').on('click',function(){
 	    dataType: 'json',
 	    success: function(data){
 	    	$('body').removeClass('waiting')
-	      	console.log(data)
+	      	let newHtml=''
+			for(let i=0 ; i<data.length ; i++){
+				newHtml+=`
+				<div class="gameElement">
+					<img src="${data[i].image}" class="gameImg">
+					<label class="gameNameLbl">${data[i].name}</label>
+				</div>`
+			}
+			$('#infodiv').append(newHtml)
 	    },
 	    error: function(error_msg) {
 	    	$('body').removeClass('waiting')

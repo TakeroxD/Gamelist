@@ -177,6 +177,17 @@ li{
   text-align: right;
 }
 
+.gameElement{
+  margin: 10px;
+  width: 150px;
+  height: 230px;
+}
+
+.gameImg{
+  width: 150px;
+  height: 210px;
+}
+
 .searchInput{
   background: #FFFFFF;
   color: #000000;
