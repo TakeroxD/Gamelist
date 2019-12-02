@@ -190,6 +190,3 @@ $('#logoutButton').on('click',function(){
 	location.href='./logout.html';
 })
 
-$('#logoutButton').on('click',function(){
-	location.href='./logout.html';
-})
