@@ -179,13 +179,13 @@ li{
 
 .gameElement{
   margin: 10px;
-  width: 150px;
-  height: 230px;
+  width: 200px;
+  height: 300px;
 }
 
 .gameImg{
-  width: 150px;
-  height: 210px;
+  width: 200px;
+  height: 270px;
 }
 
 .gameImg:hover{
@@ -310,4 +310,27 @@ li{
   float: left;
   text-align: center;
   margin: 10px 30px;
+}
+
+#revs{
+  background: #FFFFFF;
+  width: 100%;
+}
+
+#newReview{
+  background: #FFFFFF;
+  width: 85%;
+  height: 5em;
+  display: inline;
+}
+
+#revButton{
+  width: auto;
+  float: right;
+  display: inline;
+}
+
+#jaja{
+  width: 100%;
+  margin: 10px;
 }
